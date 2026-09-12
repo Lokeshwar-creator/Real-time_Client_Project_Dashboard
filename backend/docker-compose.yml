@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: client-project-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dashboard_user
+      POSTGRES_PASSWORD: dashboard_password
+      POSTGRES_DB: client_project_dashboard
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
